@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>main.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="SynEdit HTML exporter" />
+<style type="text/css">
+<!--
+body { color: #000000; background-color: #1E1E1E; }
+.cpp1-assembler { background-color: #C0C0C0; color: #79ABFF; text-decoration: underline; }
+.cpp1-character { color: #D25252; }
+.cpp1-comment { background-color: #1E1E1E; color: #C7DD0C; }
+.cpp1-float { background-color: #1E1E1E; color: #7FB347; }
+.cpp1-hexadecimal { background-color: #1E1E1E; color: #7FB347; }
+.cpp1-identifier { color: #BED6FF; }
+.cpp1-illegalchar { color: #FB0000; }
+.cpp1-number { background-color: #1E1E1E; color: #7FB347; }
+.cpp1-octal { background-color: #1E1E1E; color: #7FB347; }
+.cpp1-preprocessor { background-color: #1E1E1E; color: #79ABFF; }
+.cpp1-reservedword { background-color: #1E1E1E; color: #FFFFFF; }
+.cpp1-space { background-color: #1E1E1E; color: #D8D8D8; }
+.cpp1-string { background-color: #1E1E1E; color: #FFC600; }
+.cpp1-symbol { background-color: #1E1E1E; color: #D9E577; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<code><span style="font: 7pt @Microsoft YaHei UI;"><span class="cpp1-comment">/*
+M.Alper Uslu 
+Dpu Bilgisayar m.(io)
+201513172025
+17.12.2017
+*/
+
+</span><span class="cpp1-preprocessor">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define ANSI_COLOR_RED     &quot;\x1b[31m&quot;
+#define ANSI_COLOR_RESET   &quot;\x1b[0m&quot;
+#define ANSI_COLOR_GREEN   &quot;\x1b[32m&quot;
+#define ANSI_COLOR_YELLOW  &quot;\x1b[33m&quot;
+#define ANSI_COLOR_BLUE    &quot;\x1b[34m&quot;
+#define ANSI_COLOR_MAGENTA &quot;\x1b[35m&quot;
+#define ANSI_COLOR_CYAN    &quot;\x1b[36m&quot;
+
+</span><span class="cpp1-reservedword">struct</span><span class="cpp1-space"> </span><span class="cpp1-identifier">kisi</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-identifier">isim</span><span class="cpp1-symbol">[</span><span class="cpp1-number">15</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-identifier">soyisim</span><span class="cpp1-symbol">[</span><span class="cpp1-number">15</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-identifier">tel</span><span class="cpp1-symbol">[</span><span class="cpp1-number">13</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-identifier">bolum</span><span class="cpp1-symbol">[</span><span class="cpp1-number">30</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">	
+</span><span class="cpp1-symbol">};</span><span class="cpp1-space">	 
+
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">clrscr</span><span class="cpp1-symbol">();
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">tercih</span><span class="cpp1-symbol">();
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">control</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">secim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">alt</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">ust</span><span class="cpp1-symbol">);
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">islem</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">secim</span><span class="cpp1-symbol">);
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ekle</span><span class="cpp1-symbol">();
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">sil</span><span class="cpp1-symbol">();
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">liste</span><span class="cpp1-symbol">();
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">guncelle</span><span class="cpp1-symbol">();
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ara</span><span class="cpp1-symbol">();
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">menu</span><span class="cpp1-symbol">();
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">step</span><span class="cpp1-symbol">;
+
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">main</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">argc</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">argv</span><span class="cpp1-symbol">[])</span><span class="cpp1-space"> </span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">	
+	 </span><span class="cpp1-identifier">menu</span><span class="cpp1-symbol">(</span><span class="cpp1-number">0</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	 
+	</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-space">	
+</span><span class="cpp1-symbol">}
+
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">clrscr</span><span class="cpp1-symbol">()
+{
+</span><span class="cpp1-space">    </span><span class="cpp1-identifier">system</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;@cls||clear&quot;</span><span class="cpp1-symbol">);
+}
+
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">control</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">secim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">alt</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">ust</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">;
+</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">secim</span><span class="cpp1-symbol">&gt;</span><span class="cpp1-identifier">ust</span><span class="cpp1-space"> </span><span class="cpp1-symbol">||</span><span class="cpp1-space"> </span><span class="cpp1-identifier">secim</span><span class="cpp1-symbol">&lt;</span><span class="cpp1-identifier">alt</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">=</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;</span><span class="cpp1-space">		
+ 
+ </span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> 
+ 	</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	
+</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">;</span><span class="cpp1-space">	
+</span><span class="cpp1-symbol">}
+
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">tercih</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n----------------------------\n&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space">	
+	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;1- Tekrar\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;2- Menuye Don\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;3- Cikis Yap\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">sec</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%d&quot;</span><span class="cpp1-symbol">,&amp;</span><span class="cpp1-identifier">sec</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">control</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">sec</span><span class="cpp1-symbol">,</span><span class="cpp1-number">1</span><span class="cpp1-symbol">,</span><span class="cpp1-number">2</span><span class="cpp1-symbol">)){</span><span class="cpp1-comment">//aral&yacute;k d&yacute;&thorn;&yacute;ndayda 1 d&ouml;ner ve tekrar se&ccedil;im istenir
+</span><span class="cpp1-space">		 </span><span class="cpp1-identifier">clrscr</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">			</span><span class="cpp1-identifier">tercih</span><span class="cpp1-symbol">();</span><span class="cpp1-space">	
+	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">else</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">sec</span><span class="cpp1-symbol">==</span><span class="cpp1-number">1</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">clrscr</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">			</span><span class="cpp1-identifier">islem</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">step</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">sec</span><span class="cpp1-symbol">==</span><span class="cpp1-number">2</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">menu</span><span class="cpp1-symbol">(</span><span class="cpp1-number">0</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}</span><span class="cpp1-reservedword">else</span><span class="cpp1-symbol">{</span><span class="cpp1-space">		
+		</span><span class="cpp1-identifier">exit</span><span class="cpp1-symbol">(</span><span class="cpp1-number">0</span><span class="cpp1-symbol">);</span><span class="cpp1-space">		
+	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}</span><span class="cpp1-space">	
+</span><span class="cpp1-symbol">}
+
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">islem</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">secim</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">switch</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">secim</span><span class="cpp1-symbol">)</span><span class="cpp1-space"> </span><span class="cpp1-symbol">{
+
+</span><span class="cpp1-space">   </span><span class="cpp1-reservedword">case</span><span class="cpp1-space"> </span><span class="cpp1-number">1</span><span class="cpp1-space">  </span><span class="cpp1-symbol">:
+</span><span class="cpp1-space">   	 </span><span class="cpp1-identifier">step</span><span class="cpp1-symbol">=</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">     </span><span class="cpp1-identifier">liste</span><span class="cpp1-symbol">();</span><span class="cpp1-space">     
+      </span><span class="cpp1-reservedword">break</span><span class="cpp1-symbol">;</span><span class="cpp1-space"> 	
+   </span><span class="cpp1-reservedword">case</span><span class="cpp1-space"> </span><span class="cpp1-number">2</span><span class="cpp1-space">  </span><span class="cpp1-symbol">:
+</span><span class="cpp1-space">   	  </span><span class="cpp1-identifier">step</span><span class="cpp1-symbol">=</span><span class="cpp1-number">2</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">      </span><span class="cpp1-identifier">ara</span><span class="cpp1-symbol">();</span><span class="cpp1-space">      
+      </span><span class="cpp1-reservedword">break</span><span class="cpp1-symbol">;</span><span class="cpp1-space">       
+   </span><span class="cpp1-reservedword">case</span><span class="cpp1-space"> </span><span class="cpp1-number">3</span><span class="cpp1-space">  </span><span class="cpp1-symbol">:
+</span><span class="cpp1-space">     	</span><span class="cpp1-identifier">step</span><span class="cpp1-symbol">=</span><span class="cpp1-number">3</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">      </span><span class="cpp1-identifier">ekle</span><span class="cpp1-symbol">();</span><span class="cpp1-space">      
+      </span><span class="cpp1-reservedword">break</span><span class="cpp1-symbol">;</span><span class="cpp1-space">      
+   </span><span class="cpp1-reservedword">case</span><span class="cpp1-space"> </span><span class="cpp1-number">4</span><span class="cpp1-space">  </span><span class="cpp1-symbol">:
+</span><span class="cpp1-space">   	  </span><span class="cpp1-identifier">step</span><span class="cpp1-symbol">=</span><span class="cpp1-number">4</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">      </span><span class="cpp1-identifier">sil</span><span class="cpp1-symbol">();</span><span class="cpp1-space">      
+      </span><span class="cpp1-reservedword">break</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">   </span><span class="cpp1-reservedword">case</span><span class="cpp1-space"> </span><span class="cpp1-number">5</span><span class="cpp1-space">  </span><span class="cpp1-symbol">:
+</span><span class="cpp1-space">     	</span><span class="cpp1-identifier">step</span><span class="cpp1-symbol">=</span><span class="cpp1-number">5</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">      </span><span class="cpp1-identifier">guncelle</span><span class="cpp1-symbol">();</span><span class="cpp1-space">      
+      </span><span class="cpp1-reservedword">break</span><span class="cpp1-symbol">;</span><span class="cpp1-space">      
+   </span><span class="cpp1-reservedword">default</span><span class="cpp1-space"> </span><span class="cpp1-symbol">:
+</span><span class="cpp1-space">			   </span><span class="cpp1-identifier">clrscr</span><span class="cpp1-symbol">();</span><span class="cpp1-space"> 
+     	</span><span class="cpp1-identifier">exit</span><span class="cpp1-symbol">(</span><span class="cpp1-number">0</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">     </span><span class="cpp1-reservedword">break</span><span class="cpp1-symbol">;</span><span class="cpp1-space">  
+</span><span class="cpp1-symbol">}</span><span class="cpp1-space">	
+</span><span class="cpp1-symbol">}
+
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ekle</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">struct</span><span class="cpp1-space"> </span><span class="cpp1-identifier">kisi</span><span class="cpp1-space"> </span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space"> 		  		
+	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_GREEN</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;Kisi Ekle\n&quot;</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;----------------------------\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;TC Girin :&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space">	
+	</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%d&quot;</span><span class="cpp1-symbol">,&amp;</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> 
+	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Isim Girin :&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space">	
+	</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">isim</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Soyisim Girin :&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space">	
+	</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">soyisim</span><span class="cpp1-symbol">);</span><span class="cpp1-space">	
+	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Telefon Girin :&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space">	
+	</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tel</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Bolum Girin :&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space">	
+	</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">bolum</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-identifier">FILE</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">;
+
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;kayit.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;a&quot;</span><span class="cpp1-symbol">)){
+</span><span class="cpp1-space">		
+	</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;kayit.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;a&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space">   
+					
+</span><span class="cpp1-symbol">}</span><span class="cpp1-reservedword">else</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">  </span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;kayit.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;w&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> 	
+	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fprintf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;%d %s %s %s %s\n&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">isim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">soyisim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tel</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">bolum</span><span class="cpp1-symbol">)){
+</span><span class="cpp1-space">			</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_BLUE</span><span class="cpp1-space">  </span><span class="cpp1-string">&quot;\nBasarili!&quot;</span><span class="cpp1-space">  </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}</span><span class="cpp1-reservedword">else</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_RED</span><span class="cpp1-space">  </span><span class="cpp1-string">&quot;Hata!&quot;</span><span class="cpp1-space">  </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">			
+	</span><span class="cpp1-identifier">fclose</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">tercih</span><span class="cpp1-symbol">();</span><span class="cpp1-space">	
+</span><span class="cpp1-symbol">}
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ara</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">	 
+	 	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_GREEN</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;Kayit Arama\n&quot;</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	  </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;----------------------------\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">struct</span><span class="cpp1-space"> </span><span class="cpp1-identifier">kisi</span><span class="cpp1-space"> </span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">  
+ </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Arananicak Kelime :&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ara</span><span class="cpp1-symbol">[</span><span class="cpp1-number">30</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">ara</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		 
+		</span><span class="cpp1-identifier">FILE</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;kayit.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;r&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> 
+  </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ctrl</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">  </span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">fCtrl</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">  </span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">say</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">  
+	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-space"> </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		  
+			</span><span class="cpp1-reservedword">while</span><span class="cpp1-symbol">(!</span><span class="cpp1-identifier">feof</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">)){</span><span class="cpp1-space">				
+							
+		</span><span class="cpp1-identifier">fscanf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;%d %s %s %s %s&quot;</span><span class="cpp1-symbol">,&amp;</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">isim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">soyisim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tel</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">bolum</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		
+		</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">isim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">ara</span><span class="cpp1-symbol">)==</span><span class="cpp1-number">0</span><span class="cpp1-symbol">||</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">soyisim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">ara</span><span class="cpp1-symbol">)==</span><span class="cpp1-number">0</span><span class="cpp1-symbol">||</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">bolum</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">ara</span><span class="cpp1-symbol">)==</span><span class="cpp1-number">0</span><span class="cpp1-symbol">){</span><span class="cpp1-space">					
+			</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fCtrl</span><span class="cpp1-symbol">!=</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">				</span><span class="cpp1-identifier">say</span><span class="cpp1-symbol">++;
+</span><span class="cpp1-space">	 	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">say</span><span class="cpp1-symbol">%</span><span class="cpp1-number">2</span><span class="cpp1-symbol">==</span><span class="cpp1-number">0</span><span class="cpp1-symbol">)</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ANSI_COLOR_CYAN</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	  </span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ANSI_COLOR_YELLOW</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	  </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%d - &quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">say</span><span class="cpp1-symbol">);</span><span class="cpp1-space">	
+	 </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%d %s %s %s %s\n&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">isim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">soyisim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tel</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">bolum</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		 </span><span class="cpp1-identifier">ctrl</span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">1</span><span class="cpp1-symbol">;</span><span class="cpp1-space"> 		 
+			</span><span class="cpp1-symbol">}</span><span class="cpp1-space">				
+		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">fCtrl</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ctrl</span><span class="cpp1-symbol">==</span><span class="cpp1-number">0</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_RED</span><span class="cpp1-space">  </span><span class="cpp1-string">&quot;Kayit Bulunamadi!&quot;</span><span class="cpp1-space">  </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}</span><span class="cpp1-reservedword">else</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_BLUE</span><span class="cpp1-space">  </span><span class="cpp1-string">&quot;\nBasarili!&quot;</span><span class="cpp1-space">  </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}</span><span class="cpp1-space">		
+</span><span class="cpp1-symbol">}</span><span class="cpp1-reservedword">else</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">  </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_RED</span><span class="cpp1-space">  </span><span class="cpp1-string">&quot;Dosyada hic veri yok!&quot;</span><span class="cpp1-space">  </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">  </span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}</span><span class="cpp1-space">	
+
+	</span><span class="cpp1-identifier">fclose</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">tercih</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">	
+</span><span class="cpp1-symbol">}
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">liste</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">struct</span><span class="cpp1-space"> </span><span class="cpp1-identifier">kisi</span><span class="cpp1-space"> </span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_GREEN</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;Kisi Listesi\n&quot;</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;-----------------------------\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-identifier">FILE</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">fp</span><span class="cpp1-space"> </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;kayit.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;r&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> </span><span class="cpp1-symbol">;
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">say</span><span class="cpp1-symbol">=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">fCtrl</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space"> </span><span class="cpp1-comment">//fCtrl = (int *) malloc(12);
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-space"> </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">while</span><span class="cpp1-symbol">(!</span><span class="cpp1-identifier">feof</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">)){
+</span><span class="cpp1-space">		
+		
+		</span><span class="cpp1-identifier">fscanf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;%d %s %s %s %s&quot;</span><span class="cpp1-symbol">,&amp;</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">isim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">soyisim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tel</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">bolum</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		 
+			</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">!=</span><span class="cpp1-identifier">fCtrl</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">				</span><span class="cpp1-identifier">say</span><span class="cpp1-symbol">++;
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">say</span><span class="cpp1-symbol">%</span><span class="cpp1-number">2</span><span class="cpp1-space"> </span><span class="cpp1-symbol">==</span><span class="cpp1-number">0</span><span class="cpp1-symbol">)</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ANSI_COLOR_CYAN</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		 </span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ANSI_COLOR_YELLOW</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%d -&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">say</span><span class="cpp1-symbol">);</span><span class="cpp1-space">			
+			 </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot; %d %s %s %s %s\n&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">isim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">soyisim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tel</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">bolum</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> 					
+		  </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);</span><span class="cpp1-space">	 	
+				
+			</span><span class="cpp1-symbol">}</span><span class="cpp1-space">			
+			</span><span class="cpp1-identifier">fCtrl</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		
+		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">			
+</span><span class="cpp1-symbol">}</span><span class="cpp1-reservedword">else</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">  </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_RED</span><span class="cpp1-space">  </span><span class="cpp1-string">&quot;Dosyada hic veri yok!&quot;</span><span class="cpp1-space">  </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">  </span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-identifier">fclose</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">tercih</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">	
+</span><span class="cpp1-symbol">}
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">sil</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">	
+	 	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_GREEN</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;Kisi Sil\n&quot;</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	  </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;----------------------------\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">struct</span><span class="cpp1-space"> </span><span class="cpp1-identifier">kisi</span><span class="cpp1-space"> </span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">  
+ </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Silinecek isim :&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-identifier">a</span><span class="cpp1-symbol">[</span><span class="cpp1-number">30</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">a</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Silinecek soyisim :&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-identifier">s</span><span class="cpp1-symbol">[</span><span class="cpp1-number">30</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">s</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		 
+		</span><span class="cpp1-identifier">FILE</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">,*</span><span class="cpp1-identifier">yeni</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ctrl</span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">fCtrl</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;kayit.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;r&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> </span><span class="cpp1-comment">//bilgiler dosyadan okunacak.
+</span><span class="cpp1-space">  </span><span class="cpp1-identifier">yeni</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;gecici.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;w&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> </span><span class="cpp1-comment">//yeni bilgiler bu dosyaya yaz&yacute;lacak.
+
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-space"> </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		  
+			</span><span class="cpp1-reservedword">while</span><span class="cpp1-symbol">(!</span><span class="cpp1-identifier">feof</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">)){
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">fscanf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;%d %s %s %s %s&quot;</span><span class="cpp1-symbol">,&amp;</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">isim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">soyisim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tel</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">bolum</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">isim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">a</span><span class="cpp1-symbol">)==</span><span class="cpp1-number">0</span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">soyisim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">s</span><span class="cpp1-symbol">)==</span><span class="cpp1-number">0</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">			 </span><span class="cpp1-identifier">ctrl</span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">1</span><span class="cpp1-symbol">;</span><span class="cpp1-space"> 		
+		</span><span class="cpp1-symbol">}</span><span class="cpp1-reservedword">else</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">			</span><span class="cpp1-identifier">fprintf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">yeni</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;%d %s %s %s %s \n&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">isim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">soyisim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tel</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">bolum</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			
+		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">fCtrl</span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">;</span><span class="cpp1-space">	 		
+	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ctrl</span><span class="cpp1-symbol">==</span><span class="cpp1-number">0</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_RED</span><span class="cpp1-space">  </span><span class="cpp1-string">&quot;Kayit Bulunamadi!&quot;</span><span class="cpp1-space">  </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">else</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_BLUE</span><span class="cpp1-space">  </span><span class="cpp1-string">&quot;\nBasarili!&quot;</span><span class="cpp1-space">  </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+ </span><span class="cpp1-identifier">fclose</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-identifier">fclose</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">yeni</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> 
+ </span><span class="cpp1-identifier">remove</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;kayit.txt&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-identifier">rename</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;gecici.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;kayit.txt&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> 
+					
+</span><span class="cpp1-symbol">}</span><span class="cpp1-reservedword">else</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">  </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_RED</span><span class="cpp1-space">  </span><span class="cpp1-string">&quot;Dosyada hic veri yok!&quot;</span><span class="cpp1-space">  </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">  </span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-identifier">tercih</span><span class="cpp1-symbol">();</span><span class="cpp1-space">	
+</span><span class="cpp1-symbol">}
+
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">guncelle</span><span class="cpp1-symbol">(){
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_GREEN</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;Kayit Guncelle\n&quot;</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;----------------------------\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">  </span><span class="cpp1-reservedword">struct</span><span class="cpp1-space"> </span><span class="cpp1-identifier">kisi</span><span class="cpp1-space"> </span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">  
+ </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Kisi isim :&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-identifier">a</span><span class="cpp1-symbol">[</span><span class="cpp1-number">30</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">a</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Kisi soyisim :&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-identifier">s</span><span class="cpp1-symbol">[</span><span class="cpp1-number">30</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">s</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		 
+		</span><span class="cpp1-identifier">FILE</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">,*</span><span class="cpp1-identifier">yeni</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ctrl</span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">fCtrl</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;kayit.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;r&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> </span><span class="cpp1-comment">//bilgiler dosyadan okunacak.
+</span><span class="cpp1-space">  </span><span class="cpp1-identifier">yeni</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;gecici.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;w&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> </span><span class="cpp1-comment">//yeni bilgiler bu dosyaya yaz&yacute;lacak.
+</span><span class="cpp1-space">  
+	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-space"> </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		  
+			</span><span class="cpp1-reservedword">while</span><span class="cpp1-symbol">(!</span><span class="cpp1-identifier">feof</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">)){
+</span><span class="cpp1-space">			</span><span class="cpp1-identifier">fscanf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;%d %s %s %s %s&quot;</span><span class="cpp1-symbol">,&amp;</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">isim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">soyisim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tel</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">bolum</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">isim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">a</span><span class="cpp1-symbol">)==</span><span class="cpp1-number">0</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-space"> </span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">soyisim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">s</span><span class="cpp1-symbol">)==</span><span class="cpp1-number">0</span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-identifier">ctrl</span><span class="cpp1-symbol">==</span><span class="cpp1-number">0</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">			
+	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;TC Girin :&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%d&quot;</span><span class="cpp1-symbol">,&amp;</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Isim Girin :&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">isim</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Soyisim Girin :&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">soyisim</span><span class="cpp1-symbol">);</span><span class="cpp1-space">	
+	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Telefon Girin :&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tel</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Bolum Girin :&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">bolum</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			
+			 </span><span class="cpp1-identifier">ctrl</span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">1</span><span class="cpp1-symbol">;</span><span class="cpp1-space"> 		
+		</span><span class="cpp1-symbol">}</span><span class="cpp1-space">		
+			</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fCtrl</span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">)</span><span class="cpp1-identifier">fprintf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">yeni</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;%d %s %s %s %s \n&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">isim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">soyisim</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tel</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">bolum</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			
+		</span><span class="cpp1-identifier">fCtrl</span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-identifier">con</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tc</span><span class="cpp1-symbol">;</span><span class="cpp1-space">	 		
+	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ctrl</span><span class="cpp1-symbol">==</span><span class="cpp1-number">0</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_RED</span><span class="cpp1-space">  </span><span class="cpp1-string">&quot;Kayit Bulunamadi!&quot;</span><span class="cpp1-space">  </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">else</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_BLUE</span><span class="cpp1-space">  </span><span class="cpp1-string">&quot;Basarili!&quot;</span><span class="cpp1-space">  </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}</span><span class="cpp1-space">	
+ </span><span class="cpp1-identifier">fclose</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">fp</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-identifier">fclose</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">yeni</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> 
+ </span><span class="cpp1-identifier">remove</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;kayit.txt&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-identifier">rename</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;gecici.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-string">&quot;kayit.txt&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> 
+					
+</span><span class="cpp1-symbol">}</span><span class="cpp1-reservedword">else</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">  </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_RED</span><span class="cpp1-space">  </span><span class="cpp1-string">&quot;Dosyada hic veri yok!&quot;</span><span class="cpp1-space">  </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">  </span><span class="cpp1-comment">//return 0;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-identifier">tercih</span><span class="cpp1-symbol">();</span><span class="cpp1-space">	
+</span><span class="cpp1-symbol">}
+
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> </span><span class="cpp1-identifier">menu</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">error</span><span class="cpp1-symbol">){</span><span class="cpp1-space">	
+
+		</span><span class="cpp1-identifier">clrscr</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">	 
+	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_CYAN</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;Personel Kayit Programi\n&quot;</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;----------------------------\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;1 - Kayitlari Listele\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;2 - Kayit Ara\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;3 - Kayit Ekle\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;4 - Kayit Sil\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;5 - Kayit Guncelle\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;6 - Programdan Cik\n&quot;</span><span class="cpp1-space"> </span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;----------------------------\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> </span><span class="cpp1-identifier">secim</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space"> </span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_YELLOW</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;Seciminiz : &quot;</span><span class="cpp1-space"> </span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">error</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space"> 	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_RED</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot; Hatali Secim!\n&quot;</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space"> 	</span><span class="cpp1-identifier">printf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">ANSI_COLOR_MAGENTA</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot; Tekrar :&quot;</span><span class="cpp1-space"> </span><span class="cpp1-identifier">ANSI_COLOR_RESET</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-identifier">scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%d&quot;</span><span class="cpp1-symbol">,&amp;</span><span class="cpp1-identifier">secim</span><span class="cpp1-symbol">);</span><span class="cpp1-space">	
+	
+	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">control</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">secim</span><span class="cpp1-symbol">,</span><span class="cpp1-number">1</span><span class="cpp1-symbol">,</span><span class="cpp1-number">6</span><span class="cpp1-symbol">)){
+</span><span class="cpp1-space">		</span><span class="cpp1-identifier">menu</span><span class="cpp1-symbol">(</span><span class="cpp1-number">1</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">else</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">			</span><span class="cpp1-identifier">clrscr</span><span class="cpp1-symbol">();
+</span><span class="cpp1-space">			</span><span class="cpp1-identifier">islem</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">secim</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}</span><span class="cpp1-space"> 
+</span><span class="cpp1-symbol">}
+</span></span>
+</code></pre>
+</body>
+</html>
